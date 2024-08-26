@@ -1,7 +1,4 @@
-import pytest
-from models import models
-from app import app, db
-
+from app import app
 
 
 def test_index():
