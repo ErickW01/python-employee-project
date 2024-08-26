@@ -7,6 +7,5 @@ on:
 jobs:
   lint-test:
     steps:
-    - uses: python:3.8.0-slim
     - run: pip3 install flake8-html
     - run: flake8 --format=html --htmldir=flake_reports/
