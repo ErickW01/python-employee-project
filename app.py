@@ -1,5 +1,6 @@
 from models import models
 from flask import Flask, request, render_template, redirect
+import random
 
 DATABASE = 'emp_db.db'
 app = Flask(__name__)
@@ -90,6 +91,7 @@ def edit(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    random_port = random.randint(5000, 9999)
+    app.run(host='0.0.0.0', port=random_port)
 
 
