@@ -4,17 +4,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
-stages:
-  - test
-
-lint-test:
-  image: python:3.8.0-slim
-  stage: test
-  before_script:
-    - pip3 install flake8-html
-  script:
-    - flake8 --format=html --htmldir=flake_reports/
-  artifacts:
-    when: always
-    paths:
-      - flake_reports/
+jobs:
+  lint-test:
+    steps:
+    - uses: actions/checkout@v4
+    - run: pip3 install flake8-html
+    - run: flake8 --format=html --htmldir=flake_reports/
