@@ -6,6 +6,7 @@ on:
 
 jobs:
   lint-test:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - run: pip3 install flake8-html
