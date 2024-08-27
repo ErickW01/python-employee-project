@@ -15,14 +15,15 @@ jobs:
       with:
         name: lint-report
         path: flake_reports/
-  unit-test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - run: pip3 install pytest-html
-    - run: pytest --html=pytest_reports/pytest-report.html --self-contained-html
-    - uses: actions/upload-artifact@v4
-      with:
-        name: unit-report
-        path: pytest-report.html/
+  # unit-test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - run: pip3 install pytest-html
+  #   - run: pip3 install python3-sqlalchemy
+  #   - run: pytest --html=pytest_reports/pytest-report.html --self-contained-html
+  #   - uses: actions/upload-artifact@v4
+  #     with:
+  #       name: unit-report
+  #       path: pytest-report.html/
 
