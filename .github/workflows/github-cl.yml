@@ -26,9 +26,6 @@ jobs:
   #     with:
   #       name: unit-report
   #       path: pytest-report.html/
-
-
-jobs:
   build:
     runs-on: docker:latest
     steps:
