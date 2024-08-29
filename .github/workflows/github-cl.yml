@@ -27,3 +27,10 @@ jobs:
   #       name: unit-report
   #       path: pytest-report.html/
 
+
+jobs:
+  build:
+    runs-on: docker:latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: docker build -t https://ghcr.io/ErickW01/python-employee-project
