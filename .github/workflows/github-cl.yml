@@ -19,11 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
-  build-img:
-    uses: docker/build-push-action@v4
-    with:
-      context: . # even tried with just "app" without double quotation
-      tags: employee-image:latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: docker build -t ghcr.io/erickw01/employee-image:latest
   publish:
     runs-on: ubuntu-latest
     steps:
