@@ -15,22 +15,15 @@ jobs:
       with:
         name: lint-report
         path: flake_reports/
-  # unit-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - run: pip3 install pytest-html
-  #   - run: pip3 install python3-sqlalchemy
-  #   - run: pytest --html=pytest_reports/pytest-report.html --self-contained-html
-  #   - uses: actions/upload-artifact@v4
-  #     with:
-  #       name: unit-report
-  #       path: pytest-report.html/
-
-
-jobs:
-  build:
-    runs-on: docker:latest
+  login-docker:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: docker build -t https://ghcr.io/ErickW01/python-employee-project
+    - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: docker build . -t ghcr.io/erickw01/employee-image:latest -f ./Dockerfile
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - run: docker push ghcr.io/erickw01/employee-image:latest
