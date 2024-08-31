@@ -15,12 +15,17 @@ jobs:
       with:
         name: lint-report
         path: flake_reports/
-  build-img:
+  login-docker:
     runs-on: ubuntu-latest
     steps:
-    - name: Login
     - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
-    - name: Building_img
-    - run: docker build . -t ghcr.io/erickw01/employee-image:latest
+  build-img:
+    - name: Build and push
+    uses: docker/build-push-action@v2
+    with:
+      context: . # even tried with just "app" without double quotation
+      tags: employee-image:latest
+  publish:
+    runs-on: ubuntu-latest
+    steps:
     - run: docker push ghcr.io/erickw01/employee-image:latest
-
