@@ -19,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
-    - run: docker build . -f ./python-employee-project/Dockerfile.txt -t ghcr.io/erickw01/employee-image:latest
+    - run: docker build -t ghcr.io/erickw01/employee-image:latest
     - run: docker push ghcr.io/erickw01/employee-image:latest
 
