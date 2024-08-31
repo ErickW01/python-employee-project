@@ -24,7 +24,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - run: docker build . -t ghcr.io/erickw01/employee-image:latest -f ./dock-file
+    - run: docker build . -t ghcr.io/erickw01/employee-image:latest
     - name: Checkout
       uses: actions/checkout@v4
-    - run: docker push ghcr.io/erickw01/employee-image:latest
+    - run: sudo docker push ghcr.io/erickw01/employee-image:latest
