@@ -18,8 +18,7 @@ jobs:
   build-img:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-    docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
-    docker build -t https://ghcr.io/erickw01/employee-image:latest
-    docker push https://ghcr.io/erickw01/employee-image:latest
+    - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
+    - run: docker build -t https://ghcr.io/erickw01/employee-image:latest
+    - run: docker push https://ghcr.io/erickw01/employee-image:latest
 
