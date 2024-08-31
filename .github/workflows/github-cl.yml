@@ -23,7 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: docker build . -t ghcr.io/erickw01/employee-image:latest
-  publish:
-    runs-on: ubuntu-latest
-    steps:
     - run: docker push ghcr.io/erickw01/employee-image:latest
