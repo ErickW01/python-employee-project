@@ -20,7 +20,6 @@ jobs:
     steps:
     - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
   build-img:
-    - name: Build and push
     uses: docker/build-push-action@v2
     with:
       context: . # even tried with just "app" without double quotation
