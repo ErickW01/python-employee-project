@@ -28,4 +28,4 @@ jobs:
       - name: create image from repository
         run: docker build -t ghcr.io/erickw01/employee-image .
       - name: push image to GitHub Container Registry
-        run: docker push ghcr.io/erickw01/employee-tag:latest
+        run: docker push ghcr.io/erickw01/employee-image:latest
