@@ -15,16 +15,9 @@ jobs:
       with:
         name: lint-report
         path: flake_reports/
-  login-docker:
+  login-build-push-docker:
     runs-on: ubuntu-latest
     steps:
     - run: docker login --username erickw01 --password ${{secrets.GIT_DOCKER}} ghcr.io
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
     - run: docker build . -t ghcr.io/erickw01/employee-image:latest 
-    - name: Checkout
-      uses: actions/checkout@v4
     - run: sudo docker push ghcr.io/erickw01/employee-image:latest
